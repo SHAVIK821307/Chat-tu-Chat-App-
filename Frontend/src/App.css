@@ -1,0 +1,53 @@
+#root {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 2rem;
+  /* text-align: center; */
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+.upshadow1 {
+  background: #18181b;
+  border-radius: 20px;
+  box-shadow: -5px 5px 10px #0c0c0e, 5px -5px 10px #242428;
+}
+.shadow1 {
+  width: 100%;
+  /* margin: 0.6rem 0; */
+  border-radius: 12px;
+  background: #242424;
+  box-shadow: inset -5px 5px 5px #151515, inset 5px -5px 5px #333333;
+}
+
+.shadow1 input {
+  width: 100%;
+  border: none;
+  outline: none;
+
+  background: none;
+  font-size: 1rem;
+  color: #555;
+  padding: 0.9rem 0.9rem;
+}
+.Logout:hover {
+  border-radius: 12px;
+  background: #80af81;
+  box-shadow: inset -5px 5px 5px #334634, inset 5px -5px 5px #cdffce;
+}
+.prof-shadow {
+  background: #18181b;
+  width: 3.3rem;
+  height: 3.3rem;
+  box-shadow: -5px 5px 10px #0a0a0b, 5px -5px 10px #26262b;
+}
+.circle {
+  width: 65px;
+}
+button:hover {
+  border-radius: 50px;
+  background: #242424;
+  box-shadow: inset -4px 4px 8px #0c0c0e, inset 4px -4px 8px #242428;
+}
