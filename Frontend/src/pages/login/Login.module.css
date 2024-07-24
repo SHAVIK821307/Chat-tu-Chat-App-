@@ -49,14 +49,14 @@
   margin: 1rem 0;
   /* box-shadow: -5px 5px 5px #151515, 5px -5px 5px #333333; */
   width: 100%;
-  border-radius: 8px;
-  border: 1px solid transparent;
+  border-radius: 50px;
+  border: 1px solid gray;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background: #80af81;
-  box-shadow: inset -5px 5px 5px #334634, inset 5px -5px 5px #cdffce;
+  /* background: #80af81; */
+  /* box-shadow: inset -5px 5px 5px #334634, inset 5px -5px 5px #cdffce; */
   cursor: pointer;
   transition: 0.5s;
 }

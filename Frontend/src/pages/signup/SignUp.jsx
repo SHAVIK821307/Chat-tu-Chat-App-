@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "./SignUp.module.css";
 import { Link } from "react-router-dom";
+import useSignup from "../../hooks/useSignUp.js";
+
 const SignUp = () => {
 
   const handleGender=(e)=>{
@@ -8,6 +10,7 @@ const SignUp = () => {
     
     setinputs({...inputs,gender:e.target.value})
   }
+
   const [gender,setGender]=useState("male")
   const [inputs, setinputs] = useState({
     fullName: "",
@@ -17,9 +20,12 @@ const SignUp = () => {
     gender: gender,
   });
 
-  const handleSubmit = (e) => {
+  const {loading,signup}=useSignup()
+
+  const handleSubmit = async(e) => {
     e.preventDefault();
     console.log(inputs);
+    await signup(inputs)
   };
 
   return (
@@ -91,8 +97,13 @@ const SignUp = () => {
         <br />
         <Link to="/login"> Already have an account?</Link>
         <div>
-          <button className={styles.button} type="submit">
-            Sign Up
+          <button className={`${styles.button} flex gap-1 justify-center items-center cursor-pointer`} type="submit" disabled={loading}>
+            {!loading? "Sign Up" : <>
+            {" "}
+            <div className="h-4 w-4 bg-green-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+            <div className="h-4 w-4 bg-green-400 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+            <div className="h-4 w-4 bg-green-400 rounded-full animate-bounce"></div>
+          </>}
           </button>
         </div>
       </form>
