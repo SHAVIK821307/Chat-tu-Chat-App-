@@ -60,7 +60,7 @@ const login=async(req,res)=>{
             res.status(201).json({
 
                 username:userExist.userName,
-                fullname:userExist.fullName,
+                fullName:userExist.fullName,
                 _id:userExist._id,
                 prof_pic:userExist.profimg
             })

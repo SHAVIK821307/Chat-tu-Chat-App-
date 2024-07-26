@@ -1,18 +1,22 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import App from './App.jsx'
-import './index.css'
-import { AuthContextProvider } from './context/AuthContext.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App.jsx";
+import "./index.css";
+import { AuthContextProvider } from "./context/AuthContext.jsx";
+import { SelectedContextProvider } from "./context/SelectedContext.jsx";
+import { MessagesContextProvider } from "./context/MessagesContext.jsx";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-  <BrowserRouter>
-  <AuthContextProvider>
-
-    <App />
-  </AuthContextProvider>
-    
-  </BrowserRouter>
-  </React.StrictMode>,
-)
+    <BrowserRouter>
+      <AuthContextProvider>
+        <SelectedContextProvider>
+          <MessagesContextProvider>
+            <App />
+          </MessagesContextProvider>
+        </SelectedContextProvider>
+      </AuthContextProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+);

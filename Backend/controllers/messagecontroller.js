@@ -27,7 +27,7 @@ const sendMessage=async (req,res)=>{
             await Conversation.updateOne({_id:conversation._id},{ $push: { messages: newMessage._id }})
         }
 
-        res.status(201).json({newMessage})
+        res.status(201).json(newMessage)
 
     } catch (error) {
         console.log("Error in Message Controller",error);
@@ -45,7 +45,8 @@ const getMessages=async (req,res)=>{
                 $all:[senderId,personId]
             },
         }).populate("messages")
-
+        
+        if (!conversation) return res.status(200).json([]);
         res.status(200).json(conversation.messages)
 
     } catch (error) {
