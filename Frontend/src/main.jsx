@@ -6,6 +6,7 @@ import "./index.css";
 import { AuthContextProvider } from "./context/AuthContext.jsx";
 import { SelectedContextProvider } from "./context/SelectedContext.jsx";
 import { MessagesContextProvider } from "./context/MessagesContext.jsx";
+import { SocketContextProvider } from "./context/SocketContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <AuthContextProvider>
         <SelectedContextProvider>
           <MessagesContextProvider>
-            <App />
+            <SocketContextProvider>
+              <App />
+            </SocketContextProvider>
           </MessagesContextProvider>
         </SelectedContextProvider>
       </AuthContextProvider>

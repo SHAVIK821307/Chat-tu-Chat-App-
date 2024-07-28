@@ -1,5 +1,5 @@
 const express = require("express");
-const app = express();
+const { app, server } = require("./socket/socket.js");
 const connectMongo=require("./db/connectMongo.js")
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     connectMongo()
   console.log(`server running at port ${PORT}`);
 });

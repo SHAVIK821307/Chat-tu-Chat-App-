@@ -12,7 +12,7 @@ try {
             error:"Unauthorised -No token Provided"
         })
     }
-    const verifiedUser= await jwt.verify(token,"RyTUFvtqOHoNvAPskdfbgkdfghnfdkj")
+    const verifiedUser= await jwt.verify(token,process.env.JWT_SECRET)
 
     // console.log("this is verifiedUser",verifiedUser);
     if(!verifiedUser){

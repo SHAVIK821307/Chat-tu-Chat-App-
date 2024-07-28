@@ -1,20 +1,21 @@
 const Conversation=require("../models/chatModel")
 const Message=require("../models/messageModel")
+const { getReceiverSocketId, io } = require("../socket/socket.js");
 const sendMessage=async (req,res)=>{
     try {
-        const recieverId=req.params.id
+        const receiverId=req.params.id
         const {message}=req.body
         const senderId=req.user._id
         // console.log(recieverId);
         let conversation=await Conversation.findOne({
             participants:{
-                $all:[senderId,recieverId]
+                $all:[senderId,receiverId]
             },
         })
 
         if(!conversation){
             conversation= await Conversation.create({
-                participants:[senderId,recieverId],
+                participants:[senderId,receiverId],
             })
         }
         // console.log(conversation);
@@ -26,6 +27,13 @@ const sendMessage=async (req,res)=>{
         if(newMessage){
             await Conversation.updateOne({_id:conversation._id},{ $push: { messages: newMessage._id }})
         }
+
+        const receiverSocketId = getReceiverSocketId(receiverId);
+		if (receiverSocketId) {
+			
+			io.to(receiverSocketId).emit("newMessage", newMessage);
+		}
+
 
         res.status(201).json(newMessage)
 

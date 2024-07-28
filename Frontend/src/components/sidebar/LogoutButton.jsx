@@ -6,7 +6,7 @@ const LogoutButton = () => {
   const { loading, logout } = useLogout();
   return (
     <div className="upshadow1 p-2 mt-auto">
-      <div className="flex gap-1 justify-center items-center cursor-pointer Logout">
+      <div className="flex gap-1 justify-center items-center cursor-pointer Logout " onClick={logout}>
         {loading ? (
           <>
             {" "}
@@ -17,7 +17,7 @@ const LogoutButton = () => {
         ) : (
           <>
             <CiLogout className="text-xl" />
-            <span onClick={logout}>Logout</span>
+            <span >Logout</span>
           </>
         )}
       </div>

@@ -35,7 +35,8 @@
 .Logout:hover {
   border-radius: 12px;
   /* background: #80af81; */
-  box-shadow: -1px 1px 5px #334634, 1px -1px 5px #cdffce;
+  box-shadow: -1px 1px 5px #8B0000, 1px -1px 5px #FF6347;
+
 }
 .prof-shadow {
   background: #18181b;
