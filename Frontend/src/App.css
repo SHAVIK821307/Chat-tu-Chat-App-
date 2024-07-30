@@ -35,14 +35,24 @@
 .Logout:hover {
   border-radius: 12px;
   /* background: #80af81; */
-  box-shadow: -1px 1px 5px #8B0000, 1px -1px 5px #FF6347;
-
+  box-shadow: -1px 1px 5px #8b0000, 1px -1px 5px #ff6347;
 }
 .prof-shadow {
   background: #18181b;
   width: 3.3rem;
   height: 3.3rem;
   box-shadow: -5px 5px 10px #0a0a0b, 5px -5px 10px #26262b;
+}
+.online {
+  width: 6px;
+  height: 6px;
+  /* border: 2px solid rgb(48, 249, 75); */
+  border-radius: 50%;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transform: translate(40%, -40%);
+  background-color: rgb(48, 249, 75);
 }
 .circle {
   width: 65px;

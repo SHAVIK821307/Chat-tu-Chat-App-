@@ -1,11 +1,13 @@
 import React from "react";
 import { useAuthContext } from "../../context/AuthContext";
 import { useSelectedContext } from "../../context/SelectedContext";
+import { extractTime } from "../../../utils/extractTime";
 
 const Message = ({ message }) => {
   const { authUser } = useAuthContext();
   const {selectedConversation}=useSelectedContext()
   const fromMe = message.senderId === authUser._id;
+  const formattedTime = extractTime(message.createdAt);
   return (
     <>
       {!fromMe ? (
@@ -21,6 +23,7 @@ const Message = ({ message }) => {
                 <span className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-[#242424] text-gray-100">
                   {message.message}
                 </span>
+                <p className="text-right text-[0.65rem] text-grey-dark mt-1">{formattedTime}</p>
               </div>
             </div>
           </div>
@@ -38,6 +41,7 @@ const Message = ({ message }) => {
                 <span className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-gray-100 text-[#242424] ">
                   {message.message}
                 </span>
+                <p className="text-right text-[0.65rem] text-grey-dark mt-1">{formattedTime}</p>
               </div>
             </div>
           </div>
