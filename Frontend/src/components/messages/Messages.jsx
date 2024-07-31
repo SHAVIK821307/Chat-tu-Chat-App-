@@ -21,7 +21,12 @@ const Messages = () => {
             <Message message={message}></Message>
           </div>
         ))}
-      {/* <Message></Message> */}
+      {loading?<div className="m-auto flex gap-1">
+            
+            <div className="h-4 w-4 bg-green-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+            <div className="h-4 w-4 bg-green-400 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+            <div className="h-4 w-4 bg-green-400 rounded-full animate-bounce"></div>
+          </div>:""}
 
       {!loading && messages.length === 0 && (
         <p className="text-center">Send a message to start the conversation</p>
