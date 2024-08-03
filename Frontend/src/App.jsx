@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+
 import Login from "./pages/login/Login";
 import SignUp from "./pages/signup/SignUp";
 import Home from "./pages/home/Home";

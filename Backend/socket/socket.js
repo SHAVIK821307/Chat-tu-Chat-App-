@@ -1,7 +1,7 @@
 const { Server } =require("socket.io");
 const http = require('http');
 const express = require('express');
-
+const Message=require("../models/messageModel")
 const app = express();
 
 const server = http.createServer(app);
@@ -27,6 +27,16 @@ io.on("connection", (socket) => {
 	
 	io.emit("getOnlineUsers", Object.keys(userSocketMap));
 
+	socket.on("markMessagesAsSeen", async ({ selectedUser }) => {
+		try {
+			const up=await Message.updateMany({ recieverId: userId,senderId:selectedUser, seen: false }, { $set: { seen: true } });
+			// console.log(up);
+			
+			io.to(userSocketMap[selectedUser]).emit("messagesSeen", { userId });
+		} catch (error) {
+			console.log(error);
+		}
+	});
 	
 	socket.on("disconnect", () => {
 		console.log("user disconnected", socket.id);
